@@ -1,5 +1,8 @@
 const path = require('path')
 const HTMLWebpackPlugin = require('html-webpack-plugin')
+// Rust does not run in the browser and we can't compile it to an executable file
+// --> Rust needs to be compiled into a WebAssemly file. 
+const WasmPackPugin = require("@wasm-tool/wasm-pack-plugin")
 
 module.exports = {
 
@@ -17,6 +20,11 @@ module.exports = {
         new HTMLWebpackPlugin({
             // Has to be a relative path
             template: './public/index.html'
+        }),
+        // Needs to know where to find the Rust project
+        new WasmPackPugin({
+            // Will search for Cargo.toml -> should point to the root directory of the rust project, not to src
+            crateDirectory: path.resolve(__dirname,'.')
         })
     ]
 

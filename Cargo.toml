@@ -5,4 +5,15 @@ edition = "2021"
 
 # See more keys and their definitions at https://doc.rust-lang.org/cargo/reference/manifest.html
 
+# We are compiling Rust to WA. As a result we can define functions which are accessible via JS
+# By default, Rust will assume that we will call Rust functions with Rust code 
+# -> Should tell Rust that we'll be able to call our functions from other languages
+# Has to add a table called lib
+# Rust creates a crate during compilation which a concept that is similar to library/package in other languages 
+# By adding "cdylib"Create a crate that adds support for other langauges - will be able to call rust function with non rust code
+[lib]
+crate-type = ["cdylib"]
+
+
+
 [dependencies]
