@@ -14,10 +14,13 @@ edition = "2021"
 [lib]
 crate-type = ["cdylib"]
 
-
+# Wasm-bindgen 
 # Export Rust functions to JS and vice versa
 # The crate-type setting above allows us to communicate in any language other than Rust, however Rust doesn't know our target language
 [dependencies]
 wasm-bindgen = "0.2.79"
-# Wasm-bindgen 
 
+# Web sys: exports a set of JS functions (which are already defined) to Rust. Could add the dependency under the dependencies table, but then it would download everthing
+[dependencies.web-sys]
+version = "0.3.56"
+features = ["console"]
