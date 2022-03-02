@@ -26,6 +26,10 @@ module.exports = {
             // Will search for Cargo.toml -> should point to the root directory of the rust project, not to src
             crateDirectory: path.resolve(__dirname,'.')
         })
-    ]
+    ],
+    experiments: {
+        // WA is still labeled as experimental 
+        asyncWebAssembly: true
+    }
 
 }
