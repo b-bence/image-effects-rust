@@ -19,6 +19,7 @@ crate-type = ["cdylib"]
 # The crate-type setting above allows us to communicate in any language other than Rust, however Rust doesn't know our target language
 [dependencies]
 wasm-bindgen = "0.2.79"
+base64 = "0.13.0"
 
 # Web sys: exports a set of JS functions (which are already defined) to Rust. Could add the dependency under the dependencies table, but then it would download everthing
 [dependencies.web-sys]
