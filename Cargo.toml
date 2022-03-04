@@ -17,9 +17,11 @@ crate-type = ["cdylib"]
 # Wasm-bindgen 
 # Export Rust functions to JS and vice versa
 # The crate-type setting above allows us to communicate in any language other than Rust, however Rust doesn't know our target language
+# Image: add the grayscale effect. Use version 0.23.14 because a newer one could cause errors
 [dependencies]
 wasm-bindgen = "0.2.79"
 base64 = "0.13.0"
+image = "0.23.14"
 
 # Web sys: exports a set of JS functions (which are already defined) to Rust. Could add the dependency under the dependencies table, but then it would download everthing
 [dependencies.web-sys]

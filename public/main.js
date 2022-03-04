@@ -18,7 +18,12 @@ async function init() {
         let base64 = fileReader.result.replace(
             /^data:image\/(png|jpeg|jpg);base64,/, ''
           );
-        rustApp.grayscale(base64)
+        // We don't have the convert the encoded string to a file object. Browsers support base64 images. 
+        // Use this url to render an image and the browser will decode the image 
+        let img_data_url = rustApp.grayscale(base64);
+        document.getElementById('new-img').setAttribute(
+            'src',img_data_url
+        )
     }
 
     input.addEventListener('change', () => {
